@@ -1,0 +1,37 @@
+using System;
+
+public class Program {
+    public static void Main(string[] args) {
+        // Задаем двумерный массив символов
+        char[,] charArray = {
+            {'H', 'e', 'l', 'l', 'o'},
+            {'W', 'o', 'r', 'l', 'd'}
+        };
+
+        // Создаем строку из символов массива
+        string result = GetStringFromCharArray(charArray);
+
+        // Выводим полученную строку
+        Console.WriteLine("Строка из символов массива:");
+        Console.WriteLine(result);
+    }
+
+    // Функция для создания строки из символов двумерного массива
+    public static string GetStringFromCharArray(char[,] charArray) {
+        int rows = charArray.GetLength(0);
+        int cols = charArray.GetLength(1);
+
+        // Используем класс System.Text.StringBuilder для эффективной конкатенации символов
+        System.Text.StringBuilder sb = new System.Text.StringBuilder();
+
+        // Проходим по каждому элементу массива и добавляем его в StringBuilder
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                sb.Append(charArray[i, j]);
+            }
+        }
+
+        // Преобразуем StringBuilder в строку и возвращаем результат
+        return sb.ToString();
+    }
+}
