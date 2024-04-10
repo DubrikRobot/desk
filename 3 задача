@@ -1,0 +1,41 @@
+Задайте произвольную строку. Выясните, является ли она палиндромом.using System;
+
+public class Program {
+    public static void Main(string[] args) {
+        // Задаем произвольную строку
+        string str = "radar";
+
+        // Проверяем, является ли строка палиндромом
+        bool isPalindrome = IsPalindrome(str);
+
+        // Выводим результат
+        if (isPalindrome) {
+            Console.WriteLine("Строка является палиндромом.");
+        } else {
+            Console.WriteLine("Строка не является палиндромом.");
+        }
+    }
+
+    // Функция для определения, является ли строка палиндромом
+    public static bool IsPalindrome(string str) {
+        // Приводим строку к нижнему регистру для удобства сравнения
+        str = str.ToLower();
+
+        int left = 0;
+        int right = str.Length - 1;
+
+        // Продолжаем сравнивать символы с обоих концов строки, пока не дойдем до середины
+        while (left < right) {
+            // Если символы на текущих позициях не совпадают, строка не является палиндромом
+            if (str[left] != str[right]) {
+                return false;
+            }
+            // Переходим к следующим символам с обоих концов строки
+            left++;
+            right--;
+        }
+
+        // Если все символы совпали, строка является палиндромом
+        return true;
+    }
+}
