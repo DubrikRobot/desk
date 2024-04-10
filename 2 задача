@@ -1,0 +1,31 @@
+using System;
+
+public class Program {
+    public static void Main(string[] args) {
+        // Задаем исходную строку с буквами в обоих регистрах
+        string originalString = "HeLLoWOrLD";
+
+        // Преобразуем строку
+        string modifiedString = ConvertToUpperToLower(originalString);
+
+        // Выводим преобразованную строку
+        Console.WriteLine("Преобразованная строка:");
+        Console.WriteLine(modifiedString);
+    }
+
+    // Функция для преобразования строки так, чтобы все заглавные буквы были заменены на строчные
+    public static string ConvertToUpperToLower(string str) {
+        char[] charArray = str.ToCharArray();
+
+        // Проходим по каждому символу строки
+        for (int i = 0; i < charArray.Length; i++) {
+            // Если символ - заглавная буква, заменяем его на строчную
+            if (char.IsUpper(charArray[i])) {
+                charArray[i] = char.ToLower(charArray[i]);
+            }
+        }
+
+        // Возвращаем результат в виде строки
+        return new string(charArray);
+    }
+}
